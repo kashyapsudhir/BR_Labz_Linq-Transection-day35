@@ -50,14 +50,23 @@ namespace ProductReviewManagementWithLinq
 
 
         //}
-        public void CountRecords(List<ProductReview> listProductReview)
-        {
-            var recordedData = listProductReview.GroupBy(x => x.ProductID).Select(x => new
-            { ProductID = x.Key, Count = x.Count() });
+        //public void CountRecords(List<ProductReview> listProductReview)
+        //{
+        //    var recordedData = listProductReview.GroupBy(x => x.ProductID).Select(x => new
+        //    { ProductID = x.Key, Count = x.Count() });
 
-            foreach (var list in recordedData)
+        //    foreach (var list in recordedData)
+        //    {
+        //        Console.WriteLine(list.ProductID+"------"+list.Count);
+        //    }
+        //}
+        public void GetProductIDAndReview(List<ProductReview> listProductReview)
+        {
+            Console.WriteLine("\n ProductId and review are :");
+            var recordedData = listProductReview.Select(p => new { Id = p.ProductID, Review = p.Review }).ToList();
+            foreach (var p in recordedData)
             {
-                Console.WriteLine(list.ProductID+"------"+list.Count);
+                Console.WriteLine("Product ID=" + p.Id + " Review=" + p.Review);
             }
         }
     }

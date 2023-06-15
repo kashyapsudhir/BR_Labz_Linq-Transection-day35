@@ -101,7 +101,9 @@ namespace ProductReviewManagementWithlinq
             //UC3
             //management.SelectedRecords(productReviewList);
             //UC4
-            management.CountRecords(productReviewList);
+            //management.CountRecords(productReviewList);
+            //UC5
+            management.GetProductIDAndReview(productReviewList);
         }
 
 
