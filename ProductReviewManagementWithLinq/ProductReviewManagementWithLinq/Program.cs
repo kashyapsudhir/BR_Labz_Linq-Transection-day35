@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
 using System.Linq;
+using System.Text;
 using System.Collections.Generic;
 using ProductReviewManagementWithLinq;
 
 namespace ProductReviewManagementWithlinq
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args) 
+        static void Main(string[] args)
         {
             Console.WriteLine("Hello Product review Management With Linq");
             //UC-1
@@ -87,7 +88,7 @@ namespace ProductReviewManagementWithlinq
                     IsLike=false
                 },
 
-            }; 
+            };
             //foreach(var list in productReviews)
             //{
             //    Console.WriteLine("ProductID:-" +list.ProductID + " " + "UserID:-" + list.UserID
@@ -103,9 +104,13 @@ namespace ProductReviewManagementWithlinq
             //UC4
             //management.CountRecords(productReviewList);
             //UC5
-            management.GetProductIDAndReview(productReviewList);
+            //management.GetProductIDAndReview(productReviewList);
+            //UC6
+
+
+            //management.Skip5Records(productReviewList);
+
+
         }
-
-
     }
 }

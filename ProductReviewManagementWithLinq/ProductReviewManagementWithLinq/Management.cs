@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ProductReviewManagementWithlinq;
 
 namespace ProductReviewManagementWithLinq
 {
@@ -35,11 +36,11 @@ namespace ProductReviewManagementWithLinq
         //                              productReviewList.ProductID == 9)
         //                              && productReviewList.Review > 3
         //                       select productReviewList;
-            //var recordsData = from productReviewList in listProductReview
-            //                where (productReviewList.ProductID == 1 && productReviewList.Review > 3)
-            //                   || (productReviewList.ProductID == 4 && productReviewList.Review > 3)
-            //                   || (productReviewList.ProductID == 9 && productReviewList.Review > 3)
-            //                   select productReviewList;
+        //var recordsData = from productReviewList in listProductReview
+        //                where (productReviewList.ProductID == 1 && productReviewList.Review > 3)
+        //                   || (productReviewList.ProductID == 4 && productReviewList.Review > 3)
+        //                   || (productReviewList.ProductID == 9 && productReviewList.Review > 3)
+        //                   select productReviewList;
 
         //    foreach (var list in recordedData)
         //    {
@@ -50,6 +51,8 @@ namespace ProductReviewManagementWithLinq
 
 
         //}
+
+        //UC-4
         //public void CountRecords(List<ProductReview> listProductReview)
         //{
         //    var recordedData = listProductReview.GroupBy(x => x.ProductID).Select(x => new
@@ -60,14 +63,41 @@ namespace ProductReviewManagementWithLinq
         //        Console.WriteLine(list.ProductID+"------"+list.Count);
         //    }
         //}
-        public void GetProductIDAndReview(List<ProductReview> listProductReview)
+
+        //UC-5
+        //public void GetProductIDAndReview(List<ProductReview> listProductReview)
+        //{
+        //    Console.WriteLine("\n ProductId and review are :");
+        //    var recordedData = listProductReview.Select(p => new { Id = p.ProductID, Review = p.Review }).ToList();
+        //    foreach (var p in recordedData)
+        //    {
+        //        Console.WriteLine("Product ID=" + p.Id + " Review=" + p.Review);
+        //    }
+        //}
+
+        //UC-6
+        public static void DisplayProducts(List<ProductReview> listProductReview)
         {
-            Console.WriteLine("\n ProductId and review are :");
-            var recordedData = listProductReview.Select(p => new { Id = p.ProductID, Review = p.Review }).ToList();
-            foreach (var p in recordedData)
+            try
             {
-                Console.WriteLine("Product ID=" + p.Id + " Review=" + p.Review);
+                foreach (var lists in listProductReview)
+                {
+                    Console.WriteLine("Product id = " + lists.ProductID + "User id = " + lists.UserID + "Rating is = " + lists.Rating + " Review is = " + lists.Review + " isLike = " + lists.IsLike);
+                }
             }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            
         }
+        public void Skip5Records(List<ProductReview> listProductReview)
+        {
+            Console.WriteLine("skipping 5 records");
+            var recordedData = listProductReview.Skip(5).ToList();
+
+            DisplayProducts(recordedData);
+        }
+       
     }
 }
