@@ -12,7 +12,7 @@ namespace ProductReviewManagementWithlinq
         {
             Console.WriteLine("Hello Product review Management With Linq");
             //UC-1
-            List<ProductReview> productReviews = new List<ProductReview>()
+            List<ProductReview> productReviewList = new List<ProductReview>()
             {
                 new ProductReview()
                 {
@@ -87,12 +87,16 @@ namespace ProductReviewManagementWithlinq
                     IsLike=false
                 },
 
-            }; foreach(var list in productReviews)
-            {
-                Console.WriteLine("ProductID:-" +list.ProductID + " " + "UserID:-" + list.UserID
-                    + " " + "Rating:-" + list.Rating + " " + "Review:-" + list.Review + " " + "IsLike:-" + list.IsLike);
+            }; 
+            //foreach(var list in productReviews)
+            //{
+            //    Console.WriteLine("ProductID:-" +list.ProductID + " " + "UserID:-" + list.UserID
+            //        + " " + "Rating:-" + list.Rating + " " + "Review:-" + list.Review + " " + "IsLike:-" + list.IsLike);
 
-            }
+            //}
+
+            Management management = new Management();
+            management.TopRecords(productReviewList);
         }
 
 
