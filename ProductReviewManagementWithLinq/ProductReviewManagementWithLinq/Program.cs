@@ -99,7 +99,9 @@ namespace ProductReviewManagementWithlinq
             //UC2
             // management.TopRecords(productReviewList);
             //UC3
-            management.SelectedRecords(productReviewList);
+            //management.SelectedRecords(productReviewList);
+            //UC4
+            management.CountRecords(productReviewList);
         }
 
 

@@ -27,27 +27,38 @@ namespace ProductReviewManagementWithLinq
 
         //    }
         //}
-        public void SelectedRecords(List<ProductReview> listProductReview)
-        {
-            var recordedData = from productReviewList in listProductReview
-                               where (productReviewList.ProductID == 1 ||
-                                      productReviewList.ProductID == 4 ||
-                                      productReviewList.ProductID == 9)
-                                      && productReviewList.Review > 3
-                               select productReviewList;
+        //public void SelectedRecords(List<ProductReview> listProductReview)
+        //{
+        //    var recordedData = from productReviewList in listProductReview
+        //                       where (productReviewList.ProductID == 1 ||
+        //                              productReviewList.ProductID == 4 ||
+        //                              productReviewList.ProductID == 9)
+        //                              && productReviewList.Review > 3
+        //                       select productReviewList;
             //var recordsData = from productReviewList in listProductReview
             //                where (productReviewList.ProductID == 1 && productReviewList.Review > 3)
             //                   || (productReviewList.ProductID == 4 && productReviewList.Review > 3)
             //                   || (productReviewList.ProductID == 9 && productReviewList.Review > 3)
             //                   select productReviewList;
 
+        //    foreach (var list in recordedData)
+        //    {
+        //        Console.WriteLine("ProductID:-" + list.ProductID + " " + "UserID:-" + list.UserID
+        //            + " " + "Rating:-" + list.Rating + " " + "Review:-" + list.Review + " " + "IsLike:-" + list.IsLike);
+
+        //    }
+
+
+        //}
+        public void CountRecords(List<ProductReview> listProductReview)
+        {
+            var recordedData = listProductReview.GroupBy(x => x.ProductID).Select(x => new
+            { ProductID = x.Key, Count = x.Count() });
+
             foreach (var list in recordedData)
             {
-                Console.WriteLine("ProductID:-" + list.ProductID + " " + "UserID:-" + list.UserID
-                    + " " + "Rating:-" + list.Rating + " " + "Review:-" + list.Review + " " + "IsLike:-" + list.IsLike);
-
+                Console.WriteLine(list.ProductID+"------"+list.Count);
             }
-
         }
     }
 }
