@@ -14,18 +14,40 @@ namespace ProductReviewManagementWithLinq
         /// UC2
         /// </summary>
         /// <param name="Review"></param>
-        public void TopRecords(List<ProductReview> listProductReview)
-        {
-            var recordsData =(from productReviews  in listProductReview
-                              orderby productReviews.Rating 
-                              descending select productReviews).Take(3);
+        //public void TopRecords(List<ProductReview> listProductReview)
+        //{
+        //    var recordsData =(from productReviewList  in listProductReview
+        //                      orderby productReviewList.Rating 
+        //                      descending select productReviewList).Take(3);
 
-            foreach (var list in recordsData)
+        //    foreach (var list in recordsData)
+        //    {
+        //        Console.WriteLine("ProductID:-" + list.ProductID + " " + "UserID:-" + list.UserID
+        //            + " " + "Rating:-" + list.Rating + " " + "Review:-" + list.Review + " " + "IsLike:-" + list.IsLike);
+
+        //    }
+        //}
+        public void SelectedRecords(List<ProductReview> listProductReview)
+        {
+            var recordedData = from productReviewList in listProductReview
+                               where (productReviewList.ProductID == 1 ||
+                                      productReviewList.ProductID == 4 ||
+                                      productReviewList.ProductID == 9)
+                                      && productReviewList.Review > 3
+                               select productReviewList;
+            //var recordsData = from productReviewList in listProductReview
+            //                where (productReviewList.ProductID == 1 && productReviewList.Review > 3)
+            //                   || (productReviewList.ProductID == 4 && productReviewList.Review > 3)
+            //                   || (productReviewList.ProductID == 9 && productReviewList.Review > 3)
+            //                   select productReviewList;
+
+            foreach (var list in recordedData)
             {
                 Console.WriteLine("ProductID:-" + list.ProductID + " " + "UserID:-" + list.UserID
                     + " " + "Rating:-" + list.Rating + " " + "Review:-" + list.Review + " " + "IsLike:-" + list.IsLike);
 
             }
+
         }
     }
 }

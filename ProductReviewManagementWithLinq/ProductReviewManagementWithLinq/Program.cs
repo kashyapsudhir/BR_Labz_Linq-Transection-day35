@@ -96,7 +96,10 @@ namespace ProductReviewManagementWithlinq
             //}
 
             Management management = new Management();
-            management.TopRecords(productReviewList);
+            //UC2
+            // management.TopRecords(productReviewList);
+            //UC3
+            management.SelectedRecords(productReviewList);
         }
 
 
